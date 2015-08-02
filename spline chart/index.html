@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="http://pubnub.github.io/eon/lib/eon.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://pubnub.github.io/eon/lib/eon.css" />
+  </head>
+  <body>
+    <div id="spline"></div>
+  </body>
+  <script>
+    eon.chart({
+      channel: "pubnub-eon-iot", // the pubnub channel for real time data
+      generate: {           // c3 chart object
+        bindto: '#spline',
+        data: {
+          x: 'x',
+          labels: false
+        },
+        axis : {
+          x : {
+            type : 'timeseries',
+            tick: {
+              format: '%H:%M:%S'
+            }
+          }
+        }
+      },
+      flow: true            // flow configuration
+    });
+  </script>
+</html>
